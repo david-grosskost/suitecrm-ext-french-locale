@@ -1,0 +1,22 @@
+<?php
+
+// Signatures of what the extension uses besides suitecrm-devkit's stub, for
+// PHPStan only (SuiteCRM is not installed here): the configuration writer of
+// SuiteCRM 8.10.2 (public/legacy/modules/Configurator/Configurator.php),
+// which the administration itself uses to write config_override.php.
+
+namespace {
+    class Configurator
+    {
+        /** @var array<string, mixed> */
+        public $config = [];
+
+        public function loadConfig(): void
+        {
+        }
+
+        public function handleOverride(bool $fromParseLoggerSettings = false): void
+        {
+        }
+    }
+}

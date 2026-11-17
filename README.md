@@ -1,19 +1,64 @@
-# Modèle d'extension SuiteCRM
+# Locale française
 
-Point de départ de toute extension des projets SuiteCRM : on ne modifie jamais le code de
-SuiteCRM, on lui ajoute des extensions. Ce dépôt contient une extension d'exemple
-(`exemple`) qui passe toutes les vérifications : on la remplace par la sienne.
+Extension SuiteCRM 8 : le CRM parle français correctement, et compte en euros.
 
-## Créer une extension
+Le pack de langue français de SuiteCRM laisse des centaines de libellés en anglais, souvent
+aux endroits les plus visibles — en-têtes de colonnes, boutons, listes déroulantes. Cette
+extension les complète, et applique les usages français à son installation.
 
-1. Sur GitHub, **Use this template → Create a new repository**, nommé
-   `suitecrm-ext-<slug>` (ex. `suitecrm-ext-siret-validation`).
-2. Le cloner, puis lancer `make` : le devkit s'installe (Docker suffit, pas besoin de PHP).
-3. Remplacer l'exemple :
-   - `extension.json` : `slug`, nom, description en mots métier, types ;
-   - `composer.json` : `name` en `…/suitecrm-ext-<slug>`, description ;
-   - `legacy/include/exemple/`, `tests/ExempleTest.php` : son code et ses tests.
-4. Vérifier, comme le fera la CI :
+## Ce qu'elle apporte
+
+**2 672 libellés traduits**, répartis en un fichier par module plus un fichier commun à
+toute l'application. SuiteCRM les assemble à la réparation rapide : ils viennent par-dessus
+le pack, sans le modifier.
+
+**Les usages français**, écrits une fois dans la configuration à l'installation :
+
+| Réglage | Valeur |
+|---|---|
+| Langue par défaut | français, sans choix de langue sur la page de connexion |
+| Dates et heures | `31/12/2026 23:59` |
+| Monnaie | euro, deux décimales |
+| Nombres | `1 234,56` — virgule décimale, espace pour les milliers |
+| Exports CSV | point-virgule, pour qu'ils s'ouvrent dans un Excel français |
+
+Ces réglages appartiennent ensuite à l'administrateur : il les change dans
+l'administration, et une version suivante de l'extension ne les repose pas. Les langues
+déjà proposées par l'instance sont gardées — un pack installé à côté ne disparaît pas.
+
+La désinstallation ne touche à rien : sans l'extension, l'instance reste en français avec
+les libellés du pack, dont une partie en anglais.
+
+## Ce qu'elle n'apporte pas
+
+Le **pack de langue** lui-même, qui est installé par l'image de suitecrm-core. Cette
+extension le complète, elle ne le remplace pas.
+
+Les libellés des **gabarits `SugarObjects`** (les objets dont héritent les modules) et ceux
+de l'**installateur**, qui restent dans suitecrm-core : le mécanisme d'extension de
+SuiteCRM ne couvre ni `include/SugarObjects/`, ni les écrans affichés avant qu'une
+extension existe.
+
+## Compléter une traduction
+
+Un libellé encore en anglais se corrige dans le fichier du module concerné,
+`legacy/Extension/modules/<Module>/Ext/Language/fr_FR.french-locale.php`, ou dans
+`legacy/Extension/application/Ext/Language/fr_FR.french-locale.php` pour un libellé commun.
+Une ligne par libellé :
+
+```php
+$mod_strings['LBL_TYPE'] = 'Type :';
+$app_list_strings['account_type_dom']['Analyst'] = 'Analyste';
+```
+
+Pour trouver ce qui manque encore, `make i18n@missing` dans suitecrm-core liste les
+libellés restés en anglais sur une instance qui tourne.
+
+Les règles : vouvoiement ; espace avant `:`, `?`, `!` et `;` ; `%s`, `{0}`, balises HTML et
+noms de variables gardés tels quels ; apostrophes échappées (`'l\'opportunité'`), sauf dans
+un libellé repris en JavaScript où l'apostrophe typographique `’` évite l'échappement.
+
+## Vérifier
 
 ```bash
 make extension@validate   # format : manifeste, composer.json, place des fichiers
@@ -22,35 +67,5 @@ make quality@stan         # analyse statique (PHPStan, niveau max)
 make test@unit            # tests unitaires (PHPUnit)
 ```
 
-5. Pousser une branche et ouvrir une pull request : un développeur la relit avant le merge.
-
-## Où mettre quoi
-
-| Dossier | Copié dans SuiteCRM | Pour |
-|---|---|---|
-| `legacy/Extension/…` | `public/legacy/custom/Extension/…` | hooks, champs, libellés : SuiteCRM les assemble au Quick Repair. Le slug figure dans chaque nom de fichier (ex. `legacy/Extension/application/Ext/LogicHooks/<slug>.php`) |
-| `legacy/include/<slug>/` | `public/legacy/custom/include/<slug>/` | les classes PHP appelées par les hooks : la logique, testée sans SuiteCRM |
-| `backend/`, `config/` | `extensions/<slug>/` | la couche SuiteCRM 8 (services Symfony), chargée automatiquement |
-| `database/seeders/` | — | ses données de démo, chargées par le seed des démos |
-| `tests/` | — | ses tests unitaires |
-
-`make extension@validate` refuse un fichier rangé ailleurs : deux extensions ne peuvent
-ainsi jamais écrire le même fichier.
-
-## Le manifeste `extension.json`
-
-| Clé | Contenu |
-|---|---|
-| `slug` | identifiant, en minuscules et tirets : le préfixe de tous ses fichiers |
-| `name` | nom, en français |
-| `description` | ce que fait l'extension, en mots métier (20 caractères au moins) |
-| `types` | parmi `logic-hook`, `fields`, `ui`, `scheduler`, `lang` |
-| `suitecrm` | versions de SuiteCRM compatibles, ex. `>=8.10 <9` |
-
-## Ce qui vient du devkit
-
-Les commandes `make`, la CI, les hooks Git, les règles de qualité et la signature des
-classes SuiteCRM pour PHPStan viennent de
-[suitecrm-devkit](https://github.com/david-grosskost/suitecrm-devkit), à la version de
-`composer.json`. Corriger une règle se fait dans le devkit, puis on monte sa version ici
-(`composer.json` et `.github/workflows/*.yml`, ensemble).
+Les fichiers de libellés sont des données : PHPStan ne les analyse pas, leur syntaxe est
+vérifiée par le lint, qui lit chaque fichier.
