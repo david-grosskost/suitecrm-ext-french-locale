@@ -6,8 +6,20 @@ includes:
 
 parameters:
     paths:
+        - database
         - legacy
         - tests
     tmpDir: .tools/phpstan
     scanFiles:
         - vendor/david-grosskost/suitecrm-devkit/config/suitecrm.stub
+        - tests/stubs/suitecrm.stub
+    # The label files are data, not logic: a few thousand assignments into
+    # arrays SuiteCRM owns, some of them indexed by number inside a label
+    # (ERR_UW_PHP_FILE_ERRORS[1]…), written key by key so the pack's other
+    # keys stay. There is nothing for PHPStan to find there, and typing those
+    # arrays precisely would describe SuiteCRM's own data, not ours.
+    # Their syntax is checked by PHP-CS-Fixer (make quality@lint), which parses
+    # every file, and by the Module Loader package build.
+    excludePaths:
+        analyseAndScan:
+            - legacy/Extension/*/Ext/Language/*

@@ -1,6 +1,6 @@
 {
-    "name": "david-grosskost/suitecrm-ext-exemple",
-    "description": "Extension d'exemple du modèle des extensions SuiteCRM.",
+    "name": "david-grosskost/suitecrm-ext-french-locale",
+    "description": "Compléments du pack de langue français et réglages français par défaut pour SuiteCRM 8.",
     "type": "suitecrm-extension",
     "license": "proprietary",
     "require": {
@@ -11,8 +11,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SuiteCrmExt\\Exemple\\": "legacy/include/exemple/",
-            "SuiteCrmExt\\Exemple\\Tests\\": "tests/"
+            "SuiteCrmExt\\FrenchLocale\\": "legacy/include/french-locale/",
+            "SuiteCrmExt\\FrenchLocale\\Tests\\": "tests/"
         }
     },
     "repositories": [
