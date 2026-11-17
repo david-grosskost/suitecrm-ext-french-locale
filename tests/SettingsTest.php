@@ -44,6 +44,7 @@ final class SettingsTest extends TestCase
     {
         $languages = Settings::applyTo(['languages' => ['de_DE' => 'Deutsch']])['languages'];
 
+        self::assertIsArray($languages);
         self::assertArrayHasKey('de_DE', $languages, 'un pack installé à côté reste proposé');
         self::assertArrayHasKey('fr_FR', $languages);
         self::assertArrayHasKey('en_us', $languages);

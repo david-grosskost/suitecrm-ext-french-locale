@@ -20,7 +20,7 @@ require_once getcwd() . '/modules/Configurator/Configurator.php';
 
 $configurator = new Configurator();
 $configurator->loadConfig();
-$configurator->config = Settings::applyTo(is_array($configurator->config) ? $configurator->config : []);
+$configurator->config = Settings::applyTo($configurator->config);
 $configurator->handleOverride();
 
 return 'french-locale : usages français appliqués (langue, dates, euro, séparateurs).';
