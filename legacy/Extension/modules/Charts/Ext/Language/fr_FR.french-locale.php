@@ -7,3 +7,4 @@
 
 $mod_strings['LBL_DATE_RANGE_TO'] = 'à';
 $mod_strings['LBL_REFRESH'] = 'Actualiser';
+$mod_strings['LNK_NEW_OPPORTUNITY'] = 'Créer une affaire';

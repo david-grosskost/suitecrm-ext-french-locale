@@ -39,3 +39,4 @@ $mod_strings['LBL_FAILED_TO_CONNECT_JOOMLA'] = 'Impossible de créer l\'utilisat
 $mod_strings['LBL_ERROR_CONTACT_ID_OR_EMAIL_EMPTY'] = 'L\'ID ou l\'e-mail du contact est vide';
 $mod_strings['LBL_AOP_DISABLED'] = 'AOP est désactivé, activez-le dans les paramètres';
 $mod_strings['LBL_LIST_INVITE_STATUS'] = 'Statut de l\'invitation';
+$mod_strings['LNK_NEW_OPPORTUNITY'] = 'Créer une affaire';

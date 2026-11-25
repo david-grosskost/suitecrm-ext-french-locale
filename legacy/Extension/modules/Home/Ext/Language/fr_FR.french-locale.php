@@ -64,3 +64,4 @@ $mod_strings['LBL_CREATE_PORTAL_USER_SUCCESS'] = 'Utilisateur du portail créé'
 $mod_strings['LBL_ENABLE_PORTAL_USER_SUCCESS'] = 'Utilisateur du portail activé';
 $mod_strings['LBL_DISABLE_PORTAL_USER_SUCCESS'] = 'Utilisateur du portail désactivé';
 $mod_strings['LNK_TASK_VIEW'] = 'Voir la tâche';
+$mod_strings['LNK_NEW_OPPORTUNITY'] = 'Créer une affaire';

@@ -220,3 +220,4 @@ $mod_strings['LBL_ENABLED'] = 'Activé';
 $mod_strings['LBL_ENABLE_2FA'] = 'Activer la 2FA';
 $mod_strings['LBL_2FA_CONFIG'] = 'Configuration de la 2FA';
 $mod_strings['LBL_DISABLE_2FA'] = 'Désactiver la 2FA';
+$mod_strings['LBL_QUICK_OPPORTUNITY'] = 'Créer une affaire';

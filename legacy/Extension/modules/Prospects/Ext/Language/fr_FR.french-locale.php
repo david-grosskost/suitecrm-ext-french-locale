@@ -48,3 +48,4 @@ $mod_strings['LBL_EDIT_ACCOUNT_NAME'] = 'Nom du compte :';
 $mod_strings['LBL_CREATED_USER'] = 'Utilisateur créateur';
 $mod_strings['LBL_MODIFIED_USER'] = 'Utilisateur modificateur';
 $mod_strings['LBL_FP_EVENTS_PROSPECTS_1_FROM_FP_EVENTS_TITLE'] = 'Évènements';
+$mod_strings['LNK_NEW_OPPORTUNITY'] = 'Créer une affaire';

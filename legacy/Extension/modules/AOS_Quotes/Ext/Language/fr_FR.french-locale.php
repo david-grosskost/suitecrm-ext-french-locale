@@ -74,3 +74,4 @@ $mod_strings['LBL_AOS_QUOTES_AOS_CONTRACTS'] = 'Devis : contrats';
 $mod_strings['LBL_AOS_QUOTES_AOS_INVOICES'] = 'Devis : factures';
 $mod_strings['LBL_AOS_LINE_ITEM_GROUPS'] = 'Groupes de lignes';
 $mod_strings['LBL_AOS_PRODUCT_QUOTES'] = 'Produits du devis';
+$mod_strings['LBL_CREATE_OPPORTUNITY'] = 'Créer une affaire';

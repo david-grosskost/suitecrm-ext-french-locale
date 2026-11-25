@@ -21,3 +21,5 @@ $mod_strings['LBL_SALES_STAGE'] = 'Étape de vente :';
 $mod_strings['LBL_PROBABILITY'] = 'Probabilité (%) :';
 $mod_strings['LBL_CREATED_USER'] = 'Utilisateur créateur';
 $mod_strings['LBL_MODIFIED_USER'] = 'Utilisateur modificateur';
+$mod_strings['LBL_NEW_FORM_TITLE'] = 'Créer une affaire';
+$mod_strings['LNK_NEW_OPPORTUNITY'] = 'Créer une affaire';

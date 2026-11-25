@@ -692,3 +692,4 @@ $app_strings['LBL_NOT_AUTHORIZED'] = 'Non autorisé';
 $app_strings['LBL_AUTOFILL_MISSING_RELATE_MODULE'] = 'Remplissage automatique impossible : le module lié n\'est pas configuré.';
 $app_strings['LBL_AUTOFILL_MISSING_RELATE_ID'] = 'Remplissage automatique impossible : aucun enregistrement lié sélectionné.';
 $app_strings['LBL_AUTOFILL_MISSING_UPDATE_FIELDS'] = 'Remplissage automatique impossible : aucun champ à mettre à jour configuré.';
+$app_strings['LBL_SUITE_TOP'] = 'Retour en haut';
