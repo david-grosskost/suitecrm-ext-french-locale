@@ -49,3 +49,4 @@ $mod_strings['LBL_WEBSITE'] = 'Site web';
 $mod_strings['LBL_ENTERDATE'] = 'Date de saisie';
 $mod_strings['LBL_LOADING'] = 'Chargement';
 $mod_strings['LBL_FP_EVENTS_LEADS_1_FROM_FP_EVENTS_TITLE'] = 'Évènements';
+$mod_strings['LNK_NEW_OPPORTUNITY'] = 'Créer une affaire';
